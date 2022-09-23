@@ -51,4 +51,22 @@ app.delete('/delete/:id', async (req, res) =>{
 })
 
 
+// Middleware
+
+app.use('/middleware', async (req, res, next)=>{
+    console.log("Middleware requested")
+    next()
+})
+
+app.get('/middleware/request', async (req, res) =>{
+    try {
+        const allData = await BrandName.find()
+        return res.json(allData)
+    }
+    catch(err){
+        console.log(err.message)
+    }
+})
+
+
 app.listen(3000,()=>console.log("Server Running"))
