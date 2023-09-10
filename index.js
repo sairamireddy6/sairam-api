@@ -21,13 +21,14 @@ app.post('/post', async (req, res) => {
 })
 
 app.get('/', async (req, res) =>{
-    try {
-        const allData = await BrandName.find()
-        return res.json(allData)
-    }
-    catch(err){
-        console.log(err.message)
-    }
+    res.send(`Hello world <br/> <br/> user-agent =  ${req.headers['user-agent']}`)
+    // try {
+    //     const allData = await BrandName.find()
+    //     return res.json(allData)
+    // }
+    // catch(err){
+    //     console.log(err.message)
+    // }
 })
 
 app.get('/:id', async (req, res) => {
